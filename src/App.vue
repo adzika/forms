@@ -4,12 +4,21 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                     <div class="form-group">
-                        <label for="fullName">Full Name</label>
+                        <label for="firstName">First Name</label>
                         <input
                                 type="text"
-                                id="fullName"
+                                id="firstName"
                                 class="form-control"
-                                v-model="userData.fullName">
+                                v-model="userData.firstName">
+                    </div>
+
+                    <div class="form-group">
+                    <label for="lastName">Last Name</label>
+                    <input
+                            type="text"
+                            id="lastName"
+                            class="form-control"
+                            v-model="userData.lastName">
                     </div>
 
                     <div class="form-group">
@@ -24,7 +33,7 @@
                     <div class="form-group">
                         <label for="password">Password</label>
                         <input
-                                type="text"
+                                type="password"
                                 id="password"
                                 class="form-control"
                                 v-model="userData.password">
@@ -53,7 +62,9 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
                             <button
-                                    class="btn btn-primary" @click.prevent="submitted">Submit!
+                                    type="submit"
+                                    class="btn btn-primary"
+                                    @click.prevent="submitted">Submit!
                             </button>
                         </div>
                     </div>
@@ -68,7 +79,7 @@
                         <h4>Your Data</h4>
                     </div>
                     <div class="panel-body">
-                        <p>Full Name: {{ userData.fullName }}</p>
+                        <p>Full Name: {{ userData.firstName}} {{ userData.lastName }}</p>
                         <p>Mail: {{ userData.mail }} </p>
                         <p>Password: {{ userData.password }} </p>
                         <p>Store in Database?: {{ storeInDataBase }}</p>
@@ -84,7 +95,10 @@
         data() {
             return {
                 userData: {
-                    fullName: '' + '',
+                    fullName: {
+                      firstName: '',
+                      lastName: ''
+                    },
                     mail: '',
                     password: ''
                 },
